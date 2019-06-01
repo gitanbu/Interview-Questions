@@ -1,0 +1,28 @@
+       Replica update on swarm cluster
+
+#docker service create --replicas 6 --name redis --update
+
+     Drain a node from swarm cluter for reboot purpose.
+
+#docker node update --availability drain worker1
+
+    Make active the drained node after reboot.
+
+#docker node update --availability active worker1
+
+                 Backup a container
+                 ------------------
+    
+Launch a new container and mount the volume from the dbstore container
+
+   Mount a local host directory as /backup
+   
+   Pass a command that tars the contents of the dbdata volume to a backup.tar file inside our /backup directory.
+
+
+$ docker run --rm --volumes-from dbstore -v $(pwd):/backup ubuntu tar cvf /backup/backup.tar /dbdata
+
+                  Restore the container
+                  ---------------------
+
+ docker run -v /dbdata --name dbstore2 ubuntu /bin/bash
