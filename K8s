@@ -1,0 +1,45 @@
+DevOps engineers working with Kubernetes often encounter various errors and challenges. 𝐇𝐞𝐫𝐞 𝐚𝐫𝐞 𝐬𝐨𝐦𝐞 𝐜𝐨𝐦𝐦𝐨𝐧 𝐞𝐫𝐫𝐨𝐫𝐬 𝐢𝐧 𝐊𝐮𝐛𝐞𝐫𝐧𝐞𝐭𝐞𝐬 𝐟𝐨𝐫 𝐃𝐞𝐯𝐎𝐩𝐬 𝐞𝐧𝐠𝐢𝐧𝐞𝐞𝐫𝐬 𝐚𝐧𝐝 𝐡𝐨𝐰 𝐭𝐨 𝐚𝐝𝐝𝐫𝐞𝐬𝐬 𝐭𝐡𝐞𝐦:
+
+1. 𝐏𝐨𝐝 𝐒𝐜𝐡𝐞𝐝𝐮𝐥𝐢𝐧𝐠 𝐅𝐚𝐢𝐥𝐮𝐫𝐞𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Pods not scheduling due to resource constraints or node affinity/anti-affinity rules.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Ensure proper resource requests and limits, adjust scheduling rules, or scale your cluster as needed.
+
+2. 𝐂𝐨𝐧𝐭𝐚𝐢𝐧𝐞𝐫 𝐈𝐦𝐚𝐠𝐞 𝐈𝐬𝐬𝐮𝐞𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Pulling or running container images fails.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Verify image availability, credentials, and ensure the correct image name and version.
+
+3. 𝐊𝐮𝐛𝐞𝐫𝐧𝐞𝐭𝐞𝐬 𝐀𝐏𝐈 𝐑𝐚𝐭𝐞 𝐋𝐢𝐦𝐢𝐭𝐢𝐧𝐠:
+  - 𝐄𝐫𝐫𝐨𝐫: Frequent 429 (Too Many Requests) errors from the Kubernetes API.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Implement rate limiting and retries in your applications, or consider horizontal pod autoscaling to handle increased API requests.
+
+4. 𝐍𝐞𝐭𝐰𝐨𝐫𝐤𝐢𝐧𝐠 𝐏𝐫𝐨𝐛𝐥𝐞𝐦𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Services or pods cannot communicate with each other.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Check network policies, DNS resolution, firewall rules, and ensure that pods are in the correct namespaces.
+
+5. 𝐒𝐭𝐨𝐫𝐚𝐠𝐞 𝐈𝐬𝐬𝐮𝐞𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Persistent Volume (PV) or Persistent Volume Claim (PVC) issues, like access mode conflicts or insufficient storage.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Verify PV/PVC configurations, adjust access modes, and monitor storage usage.
+
+6. 𝐂𝐫𝐚𝐬𝐡𝐋𝐨𝐨𝐩𝐁𝐚𝐜𝐤𝐎𝐟𝐟:
+  - 𝐄𝐫𝐫𝐨𝐫: Pods enter a continuous restart loop.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Inspect pod logs, check for misconfigurations, and address application errors.
+
+7. 𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐄𝐱𝐡𝐚𝐮𝐬𝐭𝐢𝐨𝐧:
+  - 𝐄𝐫𝐫𝐨𝐫: Cluster nodes or resources running out of capacity.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Monitor resource utilization, autoscale clusters, and optimize resource requests/limits.
+
+8. 𝐒𝐞𝐜𝐫𝐞𝐭𝐬 𝐌𝐚𝐧𝐚𝐠𝐞𝐦𝐞𝐧𝐭:
+  - 𝐄𝐫𝐫𝐨𝐫: Secrets exposed or misconfigured.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Use Kubernetes-native secret management, rotate secrets regularly, and limit access to sensitive information.
+
+9. 𝐑𝐁𝐀𝐂 (𝐑𝐨𝐥𝐞-𝐁𝐚𝐬𝐞𝐝 𝐀𝐜𝐜𝐞𝐬𝐬 𝐂𝐨𝐧𝐭𝐫𝐨𝐥) 𝐏𝐫𝐨𝐛𝐥𝐞𝐦𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Permission issues or unauthorized access.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Review RBAC policies and roles, grant appropriate permissions, and practice the principle of least privilege.
+
+10. 𝐂𝐥𝐮𝐬𝐭𝐞𝐫 𝐔𝐩𝐠𝐫𝐚𝐝𝐞𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Problems during cluster upgrades.
+  -𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Follow Kubernetes upgrade documentation carefully, backup critical data, and test upgrades in a non-production environment first.
+
+11. 𝐂𝐮𝐬𝐭𝐨𝐦 𝐑𝐞𝐬𝐨𝐮𝐫𝐜𝐞 𝐃𝐞𝐟𝐢𝐧𝐢𝐭𝐢𝐨𝐧 (𝐂𝐑𝐃) 𝐈𝐬𝐬𝐮𝐞𝐬:
+  - 𝐄𝐫𝐫𝐨𝐫: Problems with custom resource definitions and controllers.
+  - 𝐒𝐨𝐥𝐮𝐭𝐢𝐨𝐧: Debug CRD controllers, validate CRD configurations, and ensure compatibility with Kubernetes versions.
